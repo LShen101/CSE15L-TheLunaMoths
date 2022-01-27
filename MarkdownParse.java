@@ -20,14 +20,18 @@ public class MarkdownParse {
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
-		
+            
+            // checks if there are no [, ], (, or ) in the file
             if (nextOpenBracket == -1 || nextCloseBracket == -1 || openParen == -1 || closeParen == -1) {
-		    return toReturn;
-	    }
+		        return toReturn;
+	        }
 		
             if (nextCloseBracket + 1 == openParen) {
-                if (nextOpenBracket == 0 || 
-                    !(markdown.substring(nextOpenBracket - 1, nextOpenBracket).equals("!"))) {
+                // checks if either the link starts at index 0 OR has a "!" before it
+                if ((nextOpenBracket == 0 || 
+                    !(markdown.substring(nextOpenBracket - 1, nextOpenBracket).equals("!"))) &&
+                    // checks if theres spaces in the link
+                    markdown.substring(openParen + 1, closeParen).indexOf(" ") == -1) {
                     toReturn.add(markdown.substring(openParen + 1, closeParen));
                 }
             }
