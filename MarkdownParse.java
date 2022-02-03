@@ -25,7 +25,6 @@ public class MarkdownParse {
             if (nextOpenBracket == -1 || nextCloseBracket == -1 || openParen == -1 || closeParen == -1) {
 		    return toReturn;
 	    }
-		
             if (nextCloseBracket + 1 == openParen) {
                 // check if either the link starts at index 0 OR has a "!" before it
                 if ((nextOpenBracket == 0 || 
