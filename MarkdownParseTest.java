@@ -86,4 +86,8 @@ public class MarkdownParseTest {
         assertEquals(expectedLinks, links);
     }
     
+    @Test
+    public void testFail(){
+        fail();
+    }
 }
