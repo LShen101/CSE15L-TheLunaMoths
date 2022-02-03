@@ -90,4 +90,9 @@ public class MarkdownParseTest {
     public void testFail(){
         //fail();
     }
+
+    @Test
+    public void testFail2(){
+        fail();
+    }
 }
