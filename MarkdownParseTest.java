@@ -86,6 +86,7 @@ public class MarkdownParseTest {
         assertEquals(expectedLinks, links);
     }
 
+    @Test
     public void testFile9() throws IOException {
         Path fileName = Path.of("test-file9.md");
         String contents = Files.readString(fileName);
@@ -94,6 +95,28 @@ public class MarkdownParseTest {
         expectedLinks.add("`google.com");
         expectedLinks.add("google.com");
         expectedLinks.add("ucsd.edu");
+        assertEquals(expectedLinks, links);
+    }
+
+    @Test
+    public void testFile10() throws IOException{
+        Path fileName = Path.of("test-file10.md");
+        String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+        ArrayList<String> expectedLinks = new ArrayList<String>();
+        expectedLinks.add("a.com");
+        expectedLinks.add("a.com(())");
+        expectedLinks.add("example.com");
+        assertEquals(expectedLinks, links);
+    }
+
+    @Test
+    public void testFile11() throws IOException{
+        Path fileName = Path.of("test-file11.md");
+        String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+        ArrayList<String> expectedLinks = new ArrayList<String>();
+        expectedLinks.add("https://ucsd-cse15l-w22.github.io/");
         assertEquals(expectedLinks, links);
     }
 
