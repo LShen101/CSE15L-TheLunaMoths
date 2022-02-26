@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 
 public class MarkdownParseTest {
+    /*
     @Test
     public void addition() {
         assertEquals(2, 1 + 1);
@@ -109,6 +110,7 @@ public class MarkdownParseTest {
         expectedLinks.add("example.com");
         assertEquals(expectedLinks, links);
     }
+    */
 
     @Test
     public void testFile11() throws IOException{
